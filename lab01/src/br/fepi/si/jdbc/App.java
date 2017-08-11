@@ -23,7 +23,8 @@ public class App {
 		} catch (SQLException e) {
 			System.err.println("Um erro ocorreu");
 			e.printStackTrace();
-		}
+		}		
+		
 		
 	}
 
