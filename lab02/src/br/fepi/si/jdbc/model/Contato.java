@@ -1,5 +1,6 @@
 package br.fepi.si.jdbc.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Contato {
@@ -38,5 +39,12 @@ public class Contato {
 	}
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
-	}		
+	}
+	@Override
+	public String toString() {
+		return "Contato [Id=" + id + ", Nome=" + nome + ", Email=" + email + ", Endereço=" + endereco
+				+ ", Data de Nascimento=" + new SimpleDateFormat("dd/MM/yyyy").format(dataNascimento.getTime()) + "]";
+	}	
+	
+	
 }

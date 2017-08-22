@@ -31,9 +31,9 @@ public class Insert {
 		ContatoDao dao = new ContatoDao();
 		
 		//metedo que adiciona
-		dao.insert(contato);
+		dao.insert(contato);			
+		System.out.println("Dados Gravados");		
 		
-		System.out.println("Dados Gravados");
 		
 	}
 

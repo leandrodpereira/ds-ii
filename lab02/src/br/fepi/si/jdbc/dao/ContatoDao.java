@@ -12,7 +12,7 @@ import br.fepi.si.jdbc.model.Contato;
 
 public class ContatoDao {
 	
-	Connection c;
+	private Connection c;
 	
 	public ContatoDao(){
 		c = new DataSource().getConnetion();
@@ -33,6 +33,7 @@ public class ContatoDao {
 		stmt.setString(3, contato.getEndereco());
 		stmt.setDate(4, new java.sql.Date (contato.getDataNascimento().getTimeInMillis()));
 		
+		
 		//executandp
 		stmt.execute();
 		c.close();
@@ -45,7 +46,7 @@ public class ContatoDao {
 	 * Update
 	 * @param contato
 	 */
-	public void update (Contato contato){
+	public void update (Contato contato, Long id){
 		String sql = "update contatos "+
 						"set nome=?,email=?,endereco=?,dataNascimento=?"+
 						"where id=?";
@@ -56,7 +57,7 @@ public class ContatoDao {
 		stmt.setString(2, contato.getEmail());
 		stmt.setString(3, contato.getEndereco());
 		stmt.setDate(4, new java.sql.Date (contato.getDataNascimento().getTimeInMillis()));
-		stmt.setLong(5, contato.getId());
+		stmt.setLong(5, id);
 				
 		//executandp
 		stmt.execute();
@@ -70,13 +71,13 @@ public class ContatoDao {
 	 * @param contato
 	 */
 	
-	public void delete (Contato contato){
+	public void delete (Long id){
 		String sql = "delete from contatos where id=?";	
 		
 		try {
 			PreparedStatement stmt = c.prepareStatement(sql);
 			
-			stmt.setLong(1, contato.getId());
+			stmt.setLong(1, id);
 			
 			stmt.execute();
 			c.close();
@@ -87,7 +88,7 @@ public class ContatoDao {
 	}
 
 	
-	public List<Contato> select(){
+	public List<Contato> selectAll(){
 		try{
 			List<Contato> contatos = new ArrayList<>();
 			PreparedStatement stmt = c.prepareStatement("select * from contatos");
@@ -118,4 +119,31 @@ public class ContatoDao {
 		}
 		
 	}
+	
+	
+	public Contato selectId(long id) throws SQLException{
+		String sql = "select * from contatos where id=?";
+		PreparedStatement stmt = c.prepareStatement(sql);
+		stmt.setLong(1, id);
+		
+		ResultSet rs = stmt.executeQuery();
+		rs.next();
+		Contato contato = new Contato();
+		contato.setId(rs.getLong("id"));
+		contato.setNome(rs.getString("nome"));
+		contato.setEmail(rs.getString("email"));
+		contato.setEndereco(rs.getString("endereco"));
+		// montando a data através do Calendar
+		Calendar data = Calendar.getInstance();
+		data.setTime(rs.getDate("dataNascimento"));
+		contato.setDataNascimento(data);
+		
+		rs.close();
+		stmt.close();
+		c.close();
+		
+		return contato;			
+		
+	}
+
 }

@@ -24,12 +24,12 @@ public class Update {
 		} catch (ParseException e) {
 			throw new RuntimeException(e);
 		}	
-		contato.setId((long) 1);
+		
 		//gravando com o DAO		
 		ContatoDao dao = new ContatoDao();
 		
 		//metedo que adiciona
-		dao.update(contato);
+		dao.update(contato, 10L);
 		
 		System.out.println("Dados Alterados");
 		
