@@ -2,6 +2,7 @@ package br.fepi.sistemas.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -43,6 +44,11 @@ public class ServletApp extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>Primeira aplicação Servlet!!!</h1>");
+		out.println("<h2>");
+		out.println("Você está em: "+request.getRequestURI()+"<br/>");
+		out.println("Fez esta requisão em: ");
+		out.println(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(System.currentTimeMillis()));
+		out.println("</h2>");
 		out.println("</body>");
 		out.println("</html>");
 		
