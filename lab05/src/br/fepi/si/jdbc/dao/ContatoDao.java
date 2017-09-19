@@ -10,6 +10,11 @@ import java.util.List;
 
 import br.fepi.si.jdbc.model.Contato;
 
+/**
+ * 
+ * @author Leandro
+ *
+ */
 public class ContatoDao {
 	
 	private Connection c;

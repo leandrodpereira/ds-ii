@@ -1,6 +1,7 @@
 package br.fepi.si.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,7 +18,7 @@ import br.fepi.si.jdbc.model.Contato;
 
 @WebServlet("/contatos")
 /**
- * Classe que herda de Servlet
+ * Classe controladora das requisições e respostas.
  * @author Leandro
  *
  */
@@ -25,10 +26,10 @@ public class AdicionaContatoServlet extends HttpServlet {
 
 	
 	private static final long serialVersionUID = -6919696316192850082L;
-	private Calendar data = Calendar.getInstance();;
+	private Calendar data = Calendar.getInstance();
 	
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
 		String nome = request.getParameter("nome");
@@ -53,8 +54,11 @@ public class AdicionaContatoServlet extends HttpServlet {
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
 		
-				
-		System.out.println("Dados gravados com sucesso!");
+		PrintWriter pw = response.getWriter();
+	
+		pw.println("<h2>Contato <em>"+c.getNome()+"</em> gravado com sucesso.</h2>");
+		pw.println("<a href=\"/lab05/index.html\">Voltar</a>");
+		
 	}
 
 }

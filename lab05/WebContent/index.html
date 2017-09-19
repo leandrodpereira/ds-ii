@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="ISO-8859-1">
 	<title>Cadastro</title>
 	<meta name="viewport" content="width=device-width">
 	<link href="css/bootstrap.css" rel="stylesheet">
 </head>
-<body>
-<h1>Adiciona Contatos</h1>
-	<hr />
-	<form action="contatos" method="post">
-	Nome: <input type="text" name="nome" /><br /><br />
-	E-mail: <input type="text" name="email" /><br /><br />
-	EndereÃ§o: <input type="text" name="endereco" /><br /><br />
-	Data Nascimento:
-	<input type="text" name="dataNascimento" size="11" maxlength="11" 
-	value="dd/mm/aaaa"/><br /><br />
-	<input type="submit" value="Gravar" />
-	</form>
-</body>
+	<body>
+		<div class="jumbotron">
+			<div class="container">	
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h1 class="panel-title">Contatos</h1>
+					</div>	
+					<div class="panel-body">			
+						<form action="contatos" method="post">
+							<fieldset>
+								<legend>Cadastro</legend>
+								<div class="form-group">
+									<label for="nome">Nome completo</label>
+									<input type="text" class="form-control" id="nome" name="nome" autofocus required>
+								</div>
+								<div class="form-group">
+									<label for="email">Email</label>
+									<div class="input-group">
+										<span class="input-group-addon">@</span>
+										<input type="email" class="form-control" id="email" name="email"
+										placeholder="email@exemplo.com" required>
+									</div>									
+								</div>
+								<div class="form-group">
+									<label for="endereco">Endereço</label>
+									<div class="input-group">
+										<span class="input-group-addon glyphicon glyphicon-home"></span>										
+										<input type="text" class="form-control" id="endereco" name="endereco" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="dataNascimento">Data de Nascimento</label>		
+									<div class="input-group">	
+										<span class="input-group-addon glyphicon glyphicon-calendar"></span>						
+										<input type="date" class="form-control" id="dataNascimento" name="dataNascimento" 
+										placeholder="10/10/2000" required>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-primary btn-lg pull-right">
+									<span class="glyphicon glyphicon-thumbs-up"></span>
+									Gravar							
+								</button>								
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
