@@ -2,6 +2,7 @@ package br.fepi.si.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,14 +31,14 @@ public class AdicionaContatoServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+			throws ServletException, IOException{
 		
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String endereco = request.getParameter("endereco");
 		try {
 			Date dataEmTexto = new SimpleDateFormat("dd/MM/yyyy").
-					parse(request.getParameter("dataNascimento"));
+					parse(request.getParameter("dataNascimento"));		
 			
 			data.setTime(dataEmTexto);				
 			
@@ -56,8 +57,10 @@ public class AdicionaContatoServlet extends HttpServlet {
 		
 		PrintWriter pw = response.getWriter();
 	
+		pw.println("<html>");
 		pw.println("<h2>Contato <em>"+c.getNome()+"</em> gravado com sucesso.</h2>");
 		pw.println("<a href=\"/lab05/index.html\">Voltar</a>");
+		pw.println("</html>");
 		
 	}
 

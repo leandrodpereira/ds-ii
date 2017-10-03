@@ -4,12 +4,21 @@
 	<meta charset="ISO-8859-1">
 	<title>Cadastro</title>
 	<meta name="viewport" content="width=device-width">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="js/datepicker-pt-BR.js"></script>
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+   </script>
 </head>
 	<body>
 		<div class="jumbotron">
 			<div class="container">	
-				<div class="panel panel-default">
+				<div class="panel panel-default" style="margin: 10px">
 					<div class="panel-heading">
 						<h1 class="panel-title">Contatos</h1>
 					</div>	
@@ -40,7 +49,7 @@
 									<label for="dataNascimento">Data de Nascimento</label>		
 									<div class="input-group">	
 										<span class="input-group-addon glyphicon glyphicon-calendar"></span>						
-										<input type="date" class="form-control" id="dataNascimento" name="dataNascimento" 
+										<input type="text" class="form-control" id="datepicker" name="dataNascimento" 
 										placeholder="10/10/2000" required>
 									</div>
 								</div>
