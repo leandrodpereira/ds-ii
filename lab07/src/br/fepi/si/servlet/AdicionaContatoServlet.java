@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,6 +54,9 @@ public class AdicionaContatoServlet extends HttpServlet {
 		
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/listaContatos3.jsp");
+		rd.forward(request, response);
 		
 		PrintWriter pw = response.getWriter();
 	

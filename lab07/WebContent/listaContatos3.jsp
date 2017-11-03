@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -21,7 +21,7 @@
 						<thead>
 							<tr>
 								<th>Nome</th>
-								<th>Endere√ßo</th>
+								<th>EndereÁo</th>
 								<th>E-mail</th>
 								<th>Data de Nascimento</th>
 							</tr>
@@ -37,7 +37,7 @@
 											<a href="mailto:${contatos.email}"> ${contatos.email}</a>
 										</c:when>
 										<c:otherwise>
-												<div class="alert-danger">E-mail n√£o informado </div>
+												<div class="alert-danger">E-mail n„o informado </div>
 										</c:otherwise>
 									</c:choose>
 									</td>
