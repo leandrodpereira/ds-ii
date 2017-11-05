@@ -14,7 +14,7 @@ public class BuscaContatoIdBean implements Logica {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		try {
-			Contato c = new ContatoDao().selectId(Long.parseLong(request.getParameter("id")));
+			Contato c = new ContatoDao().selectId(Long.parseLong(request.getParameter("buscaId")));
 			request.setAttribute("contato", c);
 			
 		} catch (SQLException e) {
