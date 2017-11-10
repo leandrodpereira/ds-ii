@@ -4,7 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BuscaId implements Logica {
+public class BuscaIdBean implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException {		

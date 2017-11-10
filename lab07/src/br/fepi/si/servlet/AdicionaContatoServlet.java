@@ -58,12 +58,12 @@ public class AdicionaContatoServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/listaContatos3.jsp");
 		rd.forward(request, response);
 		
-		PrintWriter pw = response.getWriter();
+		/*PrintWriter pw = response.getWriter();
 	
 		pw.println("<html>");
 		pw.println("<h2>Contato <em>"+c.getNome()+"</em> gravado com sucesso.</h2>");
 		pw.println("<a href=\"/lab06\">Voltar</a>");
-		pw.println("</html>");
+		pw.println("</html>");*/
 		
 	}
 
