@@ -23,7 +23,7 @@
    
 			<li class="active"><a href="index.jsp">Cadastro</a></li>
 			<li><a href="listaContatos3.jsp">Contatos</a></li>
-			<li><a href="busca.jsp">Busca</a></li>
+			<li><a href="<c:url value = "/mvc?bean=BuscaId"/>" />Busca</a></li>
 		</ul>
     
     
