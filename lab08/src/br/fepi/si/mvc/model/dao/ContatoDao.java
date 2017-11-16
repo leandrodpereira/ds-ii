@@ -96,7 +96,7 @@ public class ContatoDao {
 	public List<Contato> selectAll(){
 		try{
 			List<Contato> contatos = new ArrayList<>();
-			PreparedStatement stmt = c.prepareStatement("select * from contatos");
+			PreparedStatement stmt = c.prepareStatement("select * from contatos order by id desc");
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()){

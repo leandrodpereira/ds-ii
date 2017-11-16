@@ -41,7 +41,7 @@ public class AdicionaContatoBean implements Logica {
 		
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
-		return "/index.jsp";
+		return "/mvc?bean=ListaContatosBean";
 	}
 
 }
