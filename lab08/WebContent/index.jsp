@@ -13,7 +13,7 @@
 <body>
 	<div class="jumbotron">
 		<div class="container">
-			
+			<h1>CRUD em MVC com Servlet (JSP e JSTL)</h1>
 		</div>
 	</div>
 	<c:import url="/resources/rodape.jsp"></c:import>

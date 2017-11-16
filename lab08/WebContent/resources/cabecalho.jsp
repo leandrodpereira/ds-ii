@@ -10,7 +10,9 @@
 <body>
 
 	<div class="panel-heading">
-		<img src="<c:url value ="/img/cabecalho.png"/>" />
+		<a href="<c:url value = "/"/>">
+			<img src="<c:url value ="/img/cabecalho.png"/>" />
+		</a>
 	</div>
 
 
@@ -23,7 +25,7 @@
    
 			<li class="active"><a href="<c:url value = "/mvc?bean=FormAdicionaContatoBean"/>">Cadastro</a></li>
 			<li><a href="<c:url value = "/mvc?bean=ListaContatosBean"/>">Contatos</a></li>
-			<li><a href="<c:url value = "/mvc?bean=BuscaIdBean"/>">Busca</a></li>
+			<li><a href="<c:url value = "/mvc?bean=FormBuscaIdBean"/>">Busca</a></li>
 		</ul>
     
     

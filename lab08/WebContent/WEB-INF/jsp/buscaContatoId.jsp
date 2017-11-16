@@ -16,36 +16,34 @@
 		<div class="container">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<table class="table table-responsive">
-						<thead>
-							<tr>
-								<th>Nome</th>
-								<th>Endereço</th>
-								<th>E-mail</th>
-								<th>Data de Nascimento</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:set var="c" value="${contato}"/>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
 								<tr>
-									<td>${c.nome}</td>
-									<td>${c.endereco}</td>
-									<td>
-									<c:choose>
-										<c:when test="${not empty c.email}">
-											<a href="mailto:${c.email}"> ${c.email}</a>
-										</c:when>
-										<c:otherwise>
-												<div class="alert-danger">E-mail não informado </div>
-										</c:otherwise>
-									</c:choose>
-									</td>
-									<td><fmt:formatDate
-											value="${c.dataNascimento.time}" pattern="dd/MM/yyyy" />
-									</td>
-								</tr>							
-						</tbody>
-					</table>
+									<th>Nome</th>
+									<th>Endereço</th>
+									<th>E-mail</th>
+									<th>Data de Nascimento</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${contato.nome}</td>
+									<td>${contato.endereco}</td>
+									<td><c:choose>
+											<c:when test="${not empty contato.email}">
+												<a href="mailto:${contato.email}"> ${contato.email}</a>
+											</c:when>
+											<c:otherwise>
+												<div class="alert-danger">E-mail não informado</div>
+											</c:otherwise>
+										</c:choose></td>
+									<td><fmt:formatDate value="${contato.dataNascimento.time}"
+											pattern="dd/MM/yyyy" /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

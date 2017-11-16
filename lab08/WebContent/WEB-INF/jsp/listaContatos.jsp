@@ -11,42 +11,51 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <title>Lista de Contatos</title>
 </head>
-<body>	
+<body>
 	<div class="jumbotron">
 		<div class="container">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<table class="table table-responsive">
-						<thead>
-							<tr>
-								<th>Nome</th>
-								<th>Endereço</th>
-								<th>E-mail</th>
-								<th>Data de Nascimento</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="contatos" items="${contatos}">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
 								<tr>
-									<td>${contatos.nome}</td>
-									<td>${contatos.endereco}</td>
-									<td>
-									<c:choose>
-										<c:when test="${not empty contatos.email}">
-											<a href="mailto:${contatos.email}"> ${contatos.email}</a>
-										</c:when>
-										<c:otherwise>
-												<div class="alert-danger">E-mail não informado </div>
-										</c:otherwise>
-									</c:choose>
-									</td>
-									<td><fmt:formatDate
-											value="${contatos.dataNascimento.time}" pattern="dd/MM/yyyy" />
-									</td>
+									<th>Nome</th>
+									<th>Endereço</th>
+									<th>E-mail</th>
+									<th>Data de Nascimento</th>
+									<th>Operações</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<c:forEach var="contatos" items="${contatos}">
+									<tr>
+										<td>${contatos.nome}</td>
+										<td>${contatos.endereco}</td>
+										<td><c:choose>
+												<c:when test="${not empty contatos.email}">
+													<a href="mailto:${contatos.email}"> ${contatos.email}</a>
+												</c:when>
+												<c:otherwise>
+													<div class="alert-danger">E-mail não informado</div>
+												</c:otherwise>
+											</c:choose></td>
+										<td><fmt:formatDate
+												value="${contatos.dataNascimento.time}" pattern="dd/MM/yyyy" />
+										</td>
+										<td><div>
+												<a href="mvc?bean=RemoveContatoBean&id=${contatos.id}" title="Remover">												
+													<span class="glyphicon glyphicon-trash"></span>													
+												</a> &nbsp;&nbsp;&nbsp; <a
+													href="mvc?bean=FormAlteraContatosBean&id=${contatos.id}" title="Alterar">
+													<span class="glyphicon glyphicon-edit"></span>
+												</a>
+											</div></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
